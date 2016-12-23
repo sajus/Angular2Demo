@@ -9,7 +9,16 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "build": "ng serve",
+    "component": "ng g component",
+    "directive": "ng g directive",
+    "pipe":	"ng g pipe",
+    "service": "ng g service",
+    "class": "ng g class",
+    "interface": "ng g interface",
+    "enum": "ng g enum",
+    "module":	"ng g module"
   },
   "private": true,
   "dependencies": {
