@@ -15,8 +15,12 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static(__dirname + '/dist'));
 
-app.get('/*', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist', 'index.html'));
+});
+
+app.get('/hello', function(req, res) {
+  res.send('Bye Bye');
 });
 
 app.use(function(req, res, next) {
