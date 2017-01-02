@@ -11,10 +11,6 @@ var express   = require('express')
   , path = require('path')
   , users = require('./routes/users_src');
 
-
-//var routes = require('./routes'),
-//var users = require('./routes/users_src');
-
 app.use(cookieParser());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -24,9 +20,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist', 'index.html'));
 });
 
-/* app.get('/hello', function(req, res) {
-  res.send('Bye Bye');
-}); */
 app.get('/usersList', users.getUsers);
 app.get('/usersList/:empId', users.getUserByEmpId);
 
