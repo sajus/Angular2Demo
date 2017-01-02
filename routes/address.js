@@ -1,7 +1,6 @@
 var fs = require('fs');
 exports.listAddrs = function (req, res){
-	console.log("./routes/users.json");
-	fs.readFile("./routes/users.json", 'utf8', function (err, data){
+	fs.readFile("./routes/address.json", 'utf8', function (err, data){
 		console.log( data );
 		res.end( data );
 	});
@@ -17,11 +16,9 @@ exports.postAddrs = function (req, res){
 			"city": "Pune" 
 		}
 	}
-   console.log("./routes/users.json");
-   fs.readFile("./routes/users.json", 'utf8', function (err, data) {
-		data = JSON.parse( data );
+   console.log("./routes/address.json");
+   fs.readFile("./routes/address.json", 'utf8', function (err, data) {
 		data["user6"] = user["user6"];
-		console.log( data );
 		fs.writeFile( __dirname + "/" + "users.json",JSON.stringify(data), function (err) {
 				if (err) return console.log(err);
 				console.log('Done');
@@ -31,10 +28,9 @@ exports.postAddrs = function (req, res){
 	
 };
 exports.listAddrsById = function (req, res){
-   fs.readFile("./routes/users.json", 'utf8', function (err, data) {
+   fs.readFile("./routes/address.json", 'utf8', function (err, data) {
        users = JSON.parse( data );
-       var user = users[req.params.id] 
-       console.log( user );
+       var user = users[req.params.id];
        res.end(JSON.stringify(user));
    });
 	
