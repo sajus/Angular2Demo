@@ -8,7 +8,12 @@ var express   = require('express')
   , app       = express()
   , bodyParser = require('body-parser')
   , cookieParser = require('cookie-parser')
-  , path = require('path');
+  , path = require('path')
+  , users = require('./routes/users_src');
+
+
+//var routes = require('./routes'),
+//var users = require('./routes/users_src');
 
 app.use(cookieParser());
 app.use(bodyParser.json()); // for parsing application/json
@@ -19,9 +24,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist', 'index.html'));
 });
 
-app.get('/hello', function(req, res) {
+/* app.get('/hello', function(req, res) {
   res.send('Bye Bye');
-});
+}); */
+app.get('/usersList', users.getUsers);
+app.get('/usersList/:empId', users.getUserByEmpId);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
