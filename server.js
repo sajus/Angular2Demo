@@ -9,7 +9,8 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   cookieParser = require('cookie-parser'),
   path = require('path'),
-  users = require('./routes/users_src');
+  users = require('./routes/users_src'),
+  address   =  require('./routes/address');
 
 app.use(cookieParser());
 app.use(bodyParser.json()); // for parsing application/json
@@ -24,6 +25,9 @@ app.get('/', function(req, res) {
 
 app.get('/usersList', users.getUsers);
 app.get('/usersList/:empId', users.getUserByEmpId);
+app.get('/listaddr', address.listAddrs); 
+app.get('/:id', address.listAddrsById);
+app.post('/address',address.postAddrs);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
