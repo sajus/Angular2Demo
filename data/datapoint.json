@@ -1,0 +1,25 @@
+{
+  "userDetails": [{
+    "name": "Timon",
+    "password": "123aphpa",
+    "empId": "1",
+    "address": {
+      "flatNo": "20",
+      "bldng": "Canaught",
+      "street": "Gandhi Lane",
+      "city": "Ahmedabad"
+    },
+    "admin": "False"
+  }, {
+    "name": "Rocky",
+    "password": "bravo123",
+    "empId": "2",
+    "addres": {
+      "flatNo": "31",
+      "bldng": "Cesar",
+      "street": "Prince Lane",
+      "city": "Nagpur"
+    },
+    "admin": "True"
+  }]
+}
