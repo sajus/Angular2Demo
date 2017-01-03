@@ -9,7 +9,9 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   cookieParser = require('cookie-parser'),
   path = require('path'),
-  users = require('./routes/users_src');
+  users = require('./routes/users_src'),
+  sequelize = require('./routes/dbconfiguration').sequelize,
+  config = require('./routes/dbresources');
 
 app.use(cookieParser());
 app.use(bodyParser.json()); // for parsing application/json
