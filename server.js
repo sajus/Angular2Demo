@@ -27,14 +27,15 @@ app.get('/', function(req, res) {
 
 app.get('/usersList', users.getUsers);
 app.get('/usersList/:empId', users.getUserByEmpId);
-app.post('/login', authorization.postAuthorization);
+app.post('/login', authorization.preAuthorization);
 
 app.use(express.static(__dirname + '/dist'));
-//Middleware to check for token
+//Middleware to check for token and to verify it.
 app.use(function(req, res, next) {
   if (authorization.isAuthorized(req, res)) {
     next();
   } else {
+    res.status(401);
     res.send('authorization Failed');
   }
 });
