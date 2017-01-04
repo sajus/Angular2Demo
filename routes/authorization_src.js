@@ -27,7 +27,6 @@ exports.preAuthorization = function(req, res) {
       //Checking if authorization is valid.
       if (authorization) {
         res.status(200);
-        res.send();
         //The secret key used to encode and decode token.
         var thesecret = "nosecrets";
         //Creating token using jwt

@@ -35,8 +35,7 @@ app.use(function(req, res, next) {
   if (authorization.isAuthorized(req, res)) {
     next();
   } else {
-    res.status(401);
-    res.send('authorization Failed');
+    res.send("Authorization Failed");
   }
 });
 
