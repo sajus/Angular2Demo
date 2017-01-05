@@ -11,7 +11,8 @@ var express = require('express'),
   path = require('path'),
   users = require('./routes/users_src'),
   sequelize = require('./routes/dbconfiguration').sequelize,
-  config = require('./routes/dbresources');
+  config = require('./routes/dbresources'),
+  authorization = require('./routes/authorization_src');
 
 app.use(cookieParser());
 app.use(bodyParser.json()); // for parsing application/json
@@ -26,11 +27,17 @@ app.get('/', function(req, res) {
 
 app.get('/usersList', users.getUsers);
 app.get('/usersList/:empId', users.getUserByEmpId);
+app.post('/login', authorization.preAuthorization);
 
+app.use(express.static(__dirname + '/dist'));
+//Middleware to check for token and to verify it.
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  if (authorization.isAuthorized(req, res)) {
+    next();
+  } else {
+    res.status(401);
+    res.send();
+  }
 });
 
 app.listen(8081, function() {
