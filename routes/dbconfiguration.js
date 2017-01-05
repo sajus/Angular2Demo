@@ -7,7 +7,7 @@ var sequelize = new Sequelize(db.name, db.host, db.password, {
   /**
    * custom host; default: localhost
    ***/
-  // host: 'my.server.tld',
+  // host: db.server,
 
   /**
    * The sql dialect of the database. default is 'mysql'

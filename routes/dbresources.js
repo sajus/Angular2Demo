@@ -3,8 +3,9 @@
  */
 module.exports = {
   database: {
-    name: 'domo_dsr',
+    name: 'domo_dsr_db',
     host: 'root',
+    server: '',
     password: 'root',
     port: 3306,
     engine: 'INNODB',

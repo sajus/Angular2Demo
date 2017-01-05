@@ -1,7 +1,3 @@
-DROP TABLE `domo_dsr_userroles`;
-DROP TABLE `domo_dsr_users`;
-DROP TABLE `domo_dsr_userlog`;
-
 CREATE DATABASE  IF NOT EXISTS `domo_dsr_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `domo_dsr_db`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)

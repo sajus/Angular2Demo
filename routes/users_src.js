@@ -1,15 +1,19 @@
 var fs = require("fs"); // To require File System module to use it's functions
+var sequelize = require("./dbconfiguration").sequelize; //import sequelize database object
 
 //This function will read the JSON file and will give the output
 exports.getUsers = function(req, res) {
-  fs.readFile("./data/datapoint.json", 'utf8', function(err, data) {
-    if (data) {
-      res.end(data);
-    } // if data is present render the values
-    else {
-      res.status(404);
-      res.send("object not found");
-    } // It will throw an error if data is not available
+  //Use query method to get the data from sever
+  sequelize.query("SELECT * from domo_dsr_users", {
+    type: sequelize.QueryTypes.SELECT
+  }).then(function(results) {
+    res.format({
+      json: function() {
+        res.send(results);
+      }
+    });
+  }).error(function(error) {
+    console.log("Query Error: " + error);
   });
 };
 
