@@ -25,9 +25,10 @@ app.get('/', function(req, res) {
 
 app.get('/usersList', users.getUsers);
 app.get('/usersList/:empId', users.getUserByEmpId);
-app.get('/listaddr', address.listAddrs); 
-app.get('/:id', address.listAddrsById);
-app.post('/address',address.postAddrs);
+app.get('/listUsers', address.listUsers);
+app.post('/postUser',address.postUser);
+app.delete('/deleteUser/:id', address.delUserById);
+app.put('/updateUser/:id', address.updateUserById);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
