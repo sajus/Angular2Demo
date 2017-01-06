@@ -2,7 +2,7 @@ var sequelize = require("./dbconfiguration").sequelize; //import sequelize datab
 //This function will give all the list of user details
 exports.getUsers = function(req, res) {
   //Use query method to get the data from sever
-  sequelize.query("SELECT * from domo_dsr_users", {
+  sequelize.query("SELECT * from domo_dsr_users INNER JOIN domo_dsr_userroles ON domo_dsr_users.role=domo_dsr_userroles.id", {
     type: sequelize.QueryTypes.SELECT
   }).then(function(results) {
     res.format({
