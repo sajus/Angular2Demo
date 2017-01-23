@@ -29,18 +29,6 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist', 'index.html'));
 });
 
-app.get('/usersList', users.getUsers);
-app.get('/usersList/:empId', users.getUserByEmpId);
-
-app.post('/login', authorization.preAuthorization);
-
-app.get('/listUsers', address.listUsers);
-app.post('/postUser',address.postUser);
-app.delete('/deleteUser/:id', address.delUserById);
-app.put('/updateUser/:id', address.updateUserById);
-
-
-app.use(express.static(__dirname + '/dist'));
 //Middleware to check for token and to verify it.
 app.use(function(req, res, next) {
   if (authorization.isAuthorized(req, res)) {
@@ -50,6 +38,14 @@ app.use(function(req, res, next) {
     res.send();
   }
 });
+
+app.get('/usersList', users.getUsers);
+app.get('/usersList/:empId', users.getUserByEmpId);
+app.post('/login', authorization.preAuthorization);
+app.get('/listUsers', address.listUsers);
+app.post('/postUser',address.postUser);
+app.delete('/deleteUser/:id', address.delUserById);
+app.put('/updateUser/:id', address.updateUserById);
 
 app.listen(8081, function() {
   console.log('Example listening on port 8081!');
