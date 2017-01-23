@@ -5,8 +5,6 @@ USE `domo_dsr_db`;
 -- Host: localhost    Database: domo_dsr_db
 -- ------------------------------------------------------
 -- Server version	5.5.34
-CREATE DATABASE  IF NOT EXISTS `domo_dsr_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `domo_dsr_db`;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -19,6 +17,7 @@ USE `domo_dsr_db`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+
 -- Table structure for table `domo_dsr_token`
 --
 
@@ -72,7 +71,6 @@ LOCK TABLES `domo_dsr_userlog` WRITE;
 /*!40000 ALTER TABLE `domo_dsr_userlog` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
 -- Table structure for table `domo_dsr_userroles`
 --
 
@@ -96,7 +94,6 @@ LOCK TABLES `domo_dsr_userroles` WRITE;
 INSERT INTO `domo_dsr_userroles` VALUES (2,'admin'),(1,'user');
 /*!40000 ALTER TABLE `domo_dsr_userroles` ENABLE KEYS */;
 UNLOCK TABLES;
-
 --
 -- Table structure for table `domo_dsr_users`
 --
@@ -130,7 +127,6 @@ LOCK TABLES `domo_dsr_users` WRITE;
 INSERT INTO `domo_dsr_users` VALUES (1,16766,'amalroyt','#!Yorlama10','amalroyt@cybage.com',1,1),(2,16793,'sanjivanig','changePass@28','sanjivanig@cybage.com',1,1),(3,16438,'rutujas','chocoCake@2504','rutujas@cybage.com',2,1),(4,16773,'dhaneshc','amarJyothi@143','dhaneshc@cybage.com',1,1);
 /*!40000 ALTER TABLE `domo_dsr_users` ENABLE KEYS */;
 UNLOCK TABLES;
-
 --
 -- Dumping events for database 'domo_dsr_db'
 --
@@ -155,6 +151,7 @@ CREATE EVENT `tokenTableCLeanup` ON SCHEDULE EVERY '30:0' MINUTE_SECOND STARTS '
 /*!50003 SET collation_connection  = @saved_col_connection */ ;;
 DELIMITER ;
 /*!50106 SET TIME_ZONE= @save_time_zone */ ;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -164,5 +161,3 @@ DELIMITER ;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2017-01-10 19:39:01
