@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginModule } from './login/login.module';
 
 const appRoutes: Routes = [
   { path: '', component:AppComponent }
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     HomeModule,
+    LoginModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
